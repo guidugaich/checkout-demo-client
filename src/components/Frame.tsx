@@ -3,7 +3,7 @@ import { Frames, CardFrame } from 'frames-react';
 
 import config from '../config';
 
-const CheckoutFrame: React.FC = () => (
+const Frame: React.FC = () => (
         <Frames
             config={{
                 publicKey: config.checkoutPublicKey,
@@ -42,4 +42,4 @@ const CheckoutFrame: React.FC = () => (
         </Frames>
     );
 
-export default CheckoutFrame;
+export default Frame;

@@ -1,12 +1,21 @@
 import config from "../../config";
 
-export async function requestPaymentComponent() {
-  const url = `${config.serverSideBaseUrl.local}/request-payment-session`;
+export type RequestPaymentSessionParams = {
+  amount: number,
+  currency: string,
+  country: string
+}
 
-  const paymentSession = fetch(url, { method: 'POST' })
-    .then((res) => res.json());
-  
-  console.log(paymentSession);
+export async function requestPaymentSession(params: RequestPaymentSessionParams) {
+  const url = `${config.serverSideBaseUrl.local}/request-payment-session`;
+  const paymentSession = await fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(params)
+  })
+    .then((res) => res.json()
+    .then(data =>  data)
+  );
 
   return paymentSession;
 };

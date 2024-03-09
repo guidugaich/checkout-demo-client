@@ -1,5 +1,5 @@
 import React from 'react';
-import products from '../services/data/products';
+import { getBasketItemsDisplay, getTotalBasketAmount } from '../utils/basketUtils';
 
 export interface IBasket {
   [key: string]: number;
@@ -18,31 +18,14 @@ const Basket: React.FC<BasketProps> = ({
   removeProductFromBasket,
   removeProductFromBasketCompletely
 }) => {
-  const basketItemsDisplay = Object.keys(basket).map((basketItemId) => {
-    const quantity: number = basket[basketItemId];
-    const unitPrice: number = products.find(p => p.id === basketItemId)?.price || 0
-    const name: string = products.find(p => p.id === basketItemId)?.name || ''
-
-    const totalItemPrice = quantity * unitPrice; 
-
-    return {
-      id: basketItemId,
-      name,
-      quantity,
-      unitPrice,
-      totalItemPrice
-    }
-  });
-
-  const totalBasketAmount = basketItemsDisplay.reduce((acc, curr) => {
-    return acc + curr.quantity*curr.unitPrice;
-  }, 0);
-
+  const basketItemsDisplay = getBasketItemsDisplay(basket);
+  const totalBasketAmount = getTotalBasketAmount(basket);
+  
   return (
     <div>
       <h2>Basket</h2>
       <ul>
-        {basketItemsDisplay.map(item => (
+        {basketItemsDisplay && basketItemsDisplay.map(item => (
           <li key={item.id}>
             {item.name} 
             <button onClick={() => removeProductFromBasket(item.id)}>-</button>
