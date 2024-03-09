@@ -12,8 +12,6 @@ const CheckoutFrame: React.FC = () => {
             .then((jsonResponse) => setData(jsonResponse))
     }, []);
 
-    console.log('----------------', data);
-
     return (
         <Frames
             config={{
@@ -31,22 +29,22 @@ const CheckoutFrame: React.FC = () => {
                 },
             }}
             ready={() => {}}
-            frameActivated={(e) => {}}
-            frameFocus={(e) => {}}
-            frameBlur={(e) => {}}
-            frameValidationChanged={(e) => {}}
-            paymentMethodChanged={(e) => {}}
-            cardValidationChanged={(e) => {}}
+            frameActivated={() => {}}
+            frameFocus={() => {}}
+            frameBlur={() => {}}
+            frameValidationChanged={() => {}}
+            paymentMethodChanged={() => {}}
+            cardValidationChanged={() => {}}
             cardSubmitted={() => {}}
             cardTokenized={(e) => {
                 alert(e.token);
             }}
-            cardTokenizationFailed={(e) => {}}
-            cardBinChanged={(e) => {}}
+            cardTokenizationFailed={() => {}}
+            cardBinChanged={() => {}}
         >
             <CardFrame />
             <button
-                onClick={(e) => {}}
+                onClick={() => {}}
             >
                 PAY GBP 25.00
             </button>
