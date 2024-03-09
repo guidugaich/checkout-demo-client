@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Frames, CardFrame } from 'frames-react';
 
 import config from '../config';
-import { requestPaymentComponent } from '../services/api/payments';
 
-const CheckoutFrame: React.FC = () => {
-    const [data, setData] = useState({});
-
-    useEffect(() => {
-        requestPaymentComponent()
-            .then((jsonResponse) => setData(jsonResponse))
-    }, []);
-
-    console.log('----------------', data);
-
-    return (
+const CheckoutFrame: React.FC = () => (
         <Frames
             config={{
                 publicKey: config.checkoutPublicKey,
@@ -31,27 +20,26 @@ const CheckoutFrame: React.FC = () => {
                 },
             }}
             ready={() => {}}
-            frameActivated={(e) => {}}
-            frameFocus={(e) => {}}
-            frameBlur={(e) => {}}
-            frameValidationChanged={(e) => {}}
-            paymentMethodChanged={(e) => {}}
-            cardValidationChanged={(e) => {}}
+            frameActivated={() => {}}
+            frameFocus={() => {}}
+            frameBlur={() => {}}
+            frameValidationChanged={() => {}}
+            paymentMethodChanged={() => {}}
+            cardValidationChanged={() => {}}
             cardSubmitted={() => {}}
             cardTokenized={(e) => {
                 alert(e.token);
             }}
-            cardTokenizationFailed={(e) => {}}
-            cardBinChanged={(e) => {}}
+            cardTokenizationFailed={() => {}}
+            cardBinChanged={() => {}}
         >
             <CardFrame />
             <button
-                onClick={(e) => {}}
+                onClick={() => {}}
             >
                 PAY GBP 25.00
             </button>
         </Frames>
     );
-};
 
 export default CheckoutFrame;

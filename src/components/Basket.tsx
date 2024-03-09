@@ -1,5 +1,4 @@
 import React from 'react';
-import { IProduct } from './ProductList';
 import products from '../services/data/products';
 
 export interface IBasket {
