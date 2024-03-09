@@ -6,10 +6,6 @@ import Header from './components/Header'
 import ProductList from './components/ProductList'
 import products from './services/data/products'
 
-const removeProductFromBasket = (obj: IBasket, keyToRemove: string): IBasket => {
-  const { [keyToRemove]: _, ...rest } = obj;
-  return rest;
-};
 
 function App() {
   const [basket, setBasket] = useState<IBasket>({});
@@ -20,7 +16,7 @@ function App() {
         ...prevState,
         [productId]: 1
       }));
-
+      
       return;
     }
 
@@ -30,11 +26,9 @@ function App() {
     }));
   };
 
-  const removeProductFromCart = (productId: string) => {
+  const removeProductFromBasket = (productId: string) => {
     if (basket[productId] === 1) {
-      setBasket(prevState => {
-        return removeProductFromBasket(prevState, productId)
-      });
+      removeProductFromBasketCompletely(productId);
 
       return;
     }
@@ -45,17 +39,23 @@ function App() {
     }));
   };
   
+  const removeProductFromBasketCompletely = (productId: string) => {
+    const { [productId]: _, ...rest } = basket;
+    setBasket(rest)
+  };
+
   return (
     <>
       <Header />
       <ProductList
         products={products}
         addProductToBasket={addProductToBasket}
-      />
+        />
       <Basket
         basket={basket}
         addProductToBasket={addProductToBasket}
-        removeProductFromCart={removeProductFromCart}
+        removeProductFromBasket={removeProductFromBasket}
+        removeProductFromBasketCompletely={removeProductFromBasketCompletely}
       />
     </>
   )

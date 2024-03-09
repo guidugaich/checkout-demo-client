@@ -8,10 +8,16 @@ export interface IBasket {
 interface BasketProps {
   basket: IBasket;
   addProductToBasket: (productId: string) => void;
-  removeProductFromCart: (productId: string) => void;
+  removeProductFromBasket: (productId: string) => void;
+  removeProductFromBasketCompletely: (productId: string) => void;
 }
 
-const Basket: React.FC<BasketProps> = ({ basket, addProductToBasket, removeProductFromCart }) => {
+const Basket: React.FC<BasketProps> = ({
+  basket,
+  addProductToBasket,
+  removeProductFromBasket,
+  removeProductFromBasketCompletely
+}) => {
   const basketItemsDisplay = Object.keys(basket).map((basketItemId) => {
     const quantity: number = basket[basketItemId];
     const unitPrice: number = products.find(p => p.id === basketItemId)?.price || 0
@@ -39,10 +45,11 @@ const Basket: React.FC<BasketProps> = ({ basket, addProductToBasket, removeProdu
         {basketItemsDisplay.map(item => (
           <li key={item.id}>
             {item.name} 
-            <button onClick={() => removeProductFromCart(item.id)}>-</button>
+            <button onClick={() => removeProductFromBasket(item.id)}>-</button>
             {item.quantity}
             <button onClick={() => addProductToBasket(item.id)}>+</button>
             {item.totalItemPrice}
+            <button onClick={() => removeProductFromBasketCompletely(item.id)}>Remove</button>
           </li>
         ))}
       </ul>
