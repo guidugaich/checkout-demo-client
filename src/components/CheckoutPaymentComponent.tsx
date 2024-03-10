@@ -8,6 +8,8 @@ interface CheckoutPaymentComponentProps {
 
 const getCheckoutWebComponent = async (paymentSession: any) => {
   console.log('webComponent', config.checkoutPublicKey);
+
+  let CheckoutWebComponents = (window as any).CheckoutWebComponents
   
   const cko = await CheckoutWebComponents({
     paymentSession: paymentSession.data,
