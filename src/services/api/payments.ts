@@ -27,7 +27,7 @@ export type requestHostedPaymentPageParams = {
 }
 
 export async function requestHostedPaymentPage(params: requestHostedPaymentPageParams) {
-  const url = `${config.serverSideBaseUrl.local}/request-hosted-payment-page`;
+  const url = `${config.serverSideBaseUrl.live}/request-hosted-payment-page`;
   const paymentSession = await fetch(url, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
