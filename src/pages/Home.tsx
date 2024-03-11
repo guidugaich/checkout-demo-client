@@ -1,5 +1,5 @@
 /* global CheckoutWebComponents */
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Basket, { IBasket } from '../components/Basket'
 // import Frame from './components/Frame'
 import Header from '../components/Header'
@@ -11,7 +11,7 @@ import CheckoutPaymentComponent from '../components/CheckoutPaymentComponent'
 import CheckoutHostedPageButton from '../components/CheckoutHostedPageButton'
 
 
-function Home() {
+const Home: React.FC = () => {
   const [basket, setBasket] = useState<IBasket>({});
   const [country, setCountry] = useState<Country>('GB');
   const [paymentSession, setPaymentSession] = useState({});
