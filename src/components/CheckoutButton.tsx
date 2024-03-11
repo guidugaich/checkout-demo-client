@@ -1,6 +1,6 @@
 import React from 'react';
 import { IBasket } from './Basket';
-import { Country } from './CountySelection';
+import { Country, countryCurrencyMap } from './CountySelection';
 import { getTotalBasketAmount } from '../utils/basketUtils';
 import { requestPaymentSession } from '../services/api/payments';
 
@@ -9,11 +9,6 @@ interface CheckoutButtonProps {
     country: Country;
     setPaymentSessionData: (paymentSessionData: any) => void
 }
-
-const countryCurrencyMap = {
-    'GB': 'GBP',
-    'DE': 'EUR'
-};
 
 const CheckoutButton: React.FC<CheckoutButtonProps> = ({ basket, country, setPaymentSessionData }) => {
     const totalBasketAmount = getTotalBasketAmount(basket);

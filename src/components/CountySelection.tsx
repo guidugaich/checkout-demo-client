@@ -6,6 +6,11 @@ interface CountrySelectionProps {
   updateCountry: (country: Country) => void;
 }
 
+export const countryCurrencyMap = {
+  'GB': 'GBP',
+  'DE': 'EUR'
+};
+
 const CountySelection: React.FC<CountrySelectionProps> = ({ updateCountry }) => {
   return (
     <>

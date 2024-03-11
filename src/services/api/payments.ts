@@ -20,15 +20,20 @@ export async function requestPaymentSession(params: RequestPaymentSessionParams)
   return paymentSession;
 };
 
-export async function requestPaymentComponent(params: RequestPaymentSessionParams) {
-  const url = `${config.serverSideBaseUrl.local}/request-payment-session`;
+export type requestHostedPaymentPageParams = {
+  amount: number,
+  currency: string,
+  country: string
+}
+
+export async function requestHostedPaymentPage(params: requestHostedPaymentPageParams) {
+  const url = `${config.serverSideBaseUrl.local}/request-hosted-payment-page`;
   const paymentSession = await fetch(url, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(params)
   })
     .then((res) => res.json()
-    .then(data =>  data)
   );
 
   return paymentSession;
