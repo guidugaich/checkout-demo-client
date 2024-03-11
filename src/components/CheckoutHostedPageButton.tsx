@@ -27,7 +27,6 @@ const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ bas
             console.log('payments page result', result);
             const redirectLink = result.data._links.redirect.href;
             window.open(redirectLink, '_blank');
-            setRedirectTo("/checkout-demo-client/success")
         } catch(err) {
             console.log(err);
         }

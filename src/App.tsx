@@ -8,12 +8,12 @@ import PaymentFailurePage from './pages/PaymentFailurePage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/checkout-demo-client/'}>
       <Routes>
-        <Route path="/checkout-demo-client" element={<Home />} />
-        <Route path="/checkout-demo-client/success" element={<PaymentSuccessPage />} />
-        <Route path="/checkout-demo-client/failure" element={<PaymentFailurePage />} />
-        <Route path="/checkout-demo-client/cancel" element={<PaymentCancelPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/success" element={<PaymentSuccessPage />} />
+        <Route path="/failure" element={<PaymentFailurePage />} />
+        <Route path="/cancel" element={<PaymentCancelPage />} />
       </Routes>
 	</BrowserRouter>
   )
