@@ -85,7 +85,6 @@ function Home() {
       <CheckoutHostedPageButton
         basket={basket}
         country={country}
-        setPaymentSessionData={setPaymentSessionData}
       />
     </>
   )

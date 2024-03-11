@@ -8,10 +8,9 @@ import { Navigate } from 'react-router-dom';
 interface CheckoutHostedPageButtonProps {
     basket: IBasket;
     country: Country;
-    setPaymentSessionData: (paymentSessionData: any) => void
 };
 
-const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ basket, country, setPaymentSessionData }) => {
+const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ basket, country }) => {
     const [redirectTo, setRedirectTo] = useState<string>('');
     
     const totalBasketAmount = getTotalBasketAmount(basket);
