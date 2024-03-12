@@ -62,30 +62,32 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
-      <CountrySelection updateCountry={updateCountry} />
-      <ProductList
-        products={products}
-        addProductToBasket={addProductToBasket}
-      />
-      <Basket
-        basket={basket}
-        addProductToBasket={addProductToBasket}
-        removeProductFromBasket={removeProductFromBasket}
-        removeProductFromBasketCompletely={removeProductFromBasketCompletely}
-      />
-      <CheckoutButton
-        basket={basket}
-        country={country}
-        setPaymentSessionData={setPaymentSessionData}
-      />
-      <CheckoutPaymentComponent
-        paymentSession={paymentSession}
-      />
-      <CheckoutHostedPageButton
-        basket={basket}
-        country={country}
-      />
+        <header className='titleHeader'>
+            <Header />
+            <CountrySelection updateCountry={updateCountry} country={country} />
+        </header>  
+        <ProductList
+            products={products}
+            addProductToBasket={addProductToBasket}
+        />
+        <Basket
+            basket={basket}
+            addProductToBasket={addProductToBasket}
+            removeProductFromBasket={removeProductFromBasket}
+            removeProductFromBasketCompletely={removeProductFromBasketCompletely}
+        />
+        <CheckoutButton
+            basket={basket}
+            country={country}
+            setPaymentSessionData={setPaymentSessionData}
+        />
+        <CheckoutPaymentComponent
+            paymentSession={paymentSession}
+        />
+        <CheckoutHostedPageButton
+            basket={basket}
+            country={country}
+        />
     </>
   )
 }

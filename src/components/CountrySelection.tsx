@@ -4,6 +4,7 @@ export type Country = 'GB' | 'DE';
 
 interface CountrySelectionProps {
   updateCountry: (country: Country) => void;
+  country: Country;
 }
 
 export const countryCurrencyMap = {
@@ -11,16 +12,25 @@ export const countryCurrencyMap = {
   'DE': 'EUR'
 };
 
-const CountrySelection: React.FC<CountrySelectionProps> = ({ updateCountry }) => {
+const CountrySelection: React.FC<CountrySelectionProps> = ({ updateCountry, country }) => {
+  console.log('country', country);
+  
   return (
-    <>
-      <button onClick={() => updateCountry('GB')}>
-        GB
+    <div className='countrySelection'>
+      <p>Select your country</p>
+      <button
+        className={country === 'GB' ? 'selectedCountry' : ''}
+        onClick={() => updateCountry('GB')}
+      >
+        <img src="src/assets/gb.png "/>
       </button>
-      <button onClick={() => updateCountry('DE')}>
-        DE
+      <button
+        className={country === 'DE' ? 'selectedCountry' : ''}
+        onClick={() => updateCountry('DE')}
+      >
+        <img src="src/assets/de.png "/>
       </button>
-    </>
+    </div>
   );
 }
 

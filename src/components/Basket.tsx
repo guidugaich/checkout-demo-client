@@ -22,20 +22,30 @@ const Basket: React.FC<BasketProps> = ({
   const totalBasketAmount = getTotalBasketAmount(basket);
   
   return (
-    <div>
+    <div className='basket'>
       <h2>Basket</h2>
-      <ul>
         {basketItemsDisplay && basketItemsDisplay.map(item => (
-          <li key={item.id}>
-            {item.name} 
-            <button onClick={() => removeProductFromBasket(item.id)}>-</button>
-            {item.quantity}
-            <button onClick={() => addProductToBasket(item.id)}>+</button>
-            {item.totalItemPrice}
+          <div key={item.id} className='basketRow'>
+            <span className='basketItemName'>{item.name}</span>
+            <div>
+              <button
+                onClick={() => removeProductFromBasket(item.id)}
+                className='basketChangeQtyBtn'
+              >
+                <span>-</span>
+              </button>
+              {item.quantity}
+              <button
+                onClick={() => addProductToBasket(item.id)}
+                className='basketChangeQtyBtn'
+              >
+                <span>+</span>
+              </button>
+            </div>
+            ${item.totalItemPrice}
             <button onClick={() => removeProductFromBasketCompletely(item.id)}>Remove</button>
-          </li>
+          </div>
         ))}
-      </ul>
       <p>Total: ${totalBasketAmount}</p>
     </div>
   );

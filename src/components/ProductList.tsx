@@ -4,6 +4,7 @@ export interface IProduct {
   id: string;
   name: string;
   price: number;
+  imgSrc: string;
 }
 
 interface ProductListProps {
@@ -13,15 +14,14 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products, addProductToBasket }) => {
   return (
-    <div>
-      <ul>
+    <div className="productList">
         {products.map(product => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-            <button onClick={() => addProductToBasket(product.id)}>Add to Cart</button>
-          </li>
+            <div className="productItem">
+              <p className='productName'>{product.name} - ${product.price}</p>
+              <img src={product.imgSrc}/>
+              <button onClick={() => addProductToBasket(product.id)}>Add to Cart</button>
+            </div>
         ))}
-      </ul>
     </div>
   );
 };

@@ -10,7 +10,7 @@ interface CheckoutHostedPageButtonProps {
 };
 
 const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ basket, country }) => {
-    const totalBasketAmount = getTotalBasketAmount(basket);
+    const totalBasketAmountMinor = getTotalBasketAmount(basket)*100;
     const currency: string = countryCurrencyMap[country];
 
     const handleCheckoutClick = async (
@@ -32,8 +32,9 @@ const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ bas
     return (
         <>
             <button
-                onClick={() => handleCheckoutClick(totalBasketAmount, country, currency)}
-                disabled={totalBasketAmount <= 0} 
+                onClick={() => handleCheckoutClick(totalBasketAmountMinor, country, currency)}
+                disabled={totalBasketAmountMinor <= 0}
+                className='checkoutHostPageButton'
             >
                 Checkout with Hosted Page
             </button>

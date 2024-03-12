@@ -11,7 +11,7 @@ interface CheckoutButtonProps {
 }
 
 const CheckoutButton: React.FC<CheckoutButtonProps> = ({ basket, country, setPaymentSessionData }) => {
-    const totalBasketAmount = getTotalBasketAmount(basket);
+    const totalBasketAmountMinor = getTotalBasketAmount(basket)*100;
     const currency = countryCurrencyMap[country];
 
     const handleCheckoutClick = async (
@@ -32,8 +32,9 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({ basket, country, setPay
     
     return (
         <button
-            onClick={() => handleCheckoutClick(totalBasketAmount, country, currency)}
-            disabled={totalBasketAmount <= 0} 
+            onClick={() => handleCheckoutClick(totalBasketAmountMinor, country, currency)}
+            disabled={totalBasketAmountMinor <= 0} 
+            className='checkoutButton'
         >
         Checkout
         </button>

@@ -7,8 +7,6 @@ interface CheckoutPaymentComponentProps {
 }
 
 const getCheckoutWebComponent = async (paymentSession: any) => {
-  console.log('webComponent', config.checkoutPublicKey);
-
   let CheckoutWebComponents = (window as any).CheckoutWebComponents
   
   const cko = await CheckoutWebComponents({
@@ -18,21 +16,15 @@ const getCheckoutWebComponent = async (paymentSession: any) => {
   });
   
   const payments: any = cko.create('payments');
-  payments.mount(document.getElementById('payments'))
-
-  console.log('payments', payments);
-  
+  payments.mount(document.getElementById('payments'))  
 };
 
 const CheckoutPaymentComponent: React.FC<CheckoutPaymentComponentProps> = ({ paymentSession }) => {
-  console.log('CheckoutPaymentComponent', paymentSession);
-
   if (paymentSession.data) {
     getCheckoutWebComponent(paymentSession);
   
     return (
       <header>
-        <h4>{paymentSession.data.id}</h4>
         <div id="payments"></div>
       </header>
     );
