@@ -22,13 +22,13 @@ const CountrySelection: React.FC<CountrySelectionProps> = ({ updateCountry, coun
         className={country === 'GB' ? 'selectedCountry' : ''}
         onClick={() => updateCountry('GB')}
       >
-        <img src="src/assets/gb.png "/>
+        <img src="src/assets/gb.png"/>
       </button>
       <button
         className={country === 'DE' ? 'selectedCountry' : ''}
         onClick={() => updateCountry('DE')}
       >
-        <img src="src/assets/de.png "/>
+        <img src="src/assets/de.png"/>
       </button>
     </div>
   );
