@@ -98,6 +98,11 @@ body {
   justify-content: space-around;
 }
 
+.basketItemName {
+  font-weight: bolder;
+  font-size: larger;
+}
+
 .basketChangeQtyBtn {
   background-color:#8C9E6E;
   border-radius: 5px;
