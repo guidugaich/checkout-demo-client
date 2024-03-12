@@ -1,13 +1,14 @@
 import React from 'react';
 import { IBasket } from './Basket';
-import { Country, countryCurrencyMap } from './CountrySelection';
+import { Country } from './CountrySelection';
 import { getTotalBasketAmount } from '../utils/basketUtils';
 import { requestHostedPaymentPage } from '../services/api/payments';
+import { countryCurrencyMap } from '../utils/countryCurrencyMap';
 
 interface CheckoutHostedPageButtonProps {
     basket: IBasket;
     country: Country;
-};
+}
 
 const CheckoutHostedPageButton: React.FC<CheckoutHostedPageButtonProps> = ({ basket, country }) => {
     const totalBasketAmountMinor = getTotalBasketAmount(basket)*100;

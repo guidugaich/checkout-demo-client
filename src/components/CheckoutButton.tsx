@@ -1,8 +1,9 @@
 import React from 'react';
 import { IBasket } from './Basket';
-import { Country, countryCurrencyMap } from './CountrySelection';
+import { Country } from './CountrySelection';
 import { getTotalBasketAmount } from '../utils/basketUtils';
 import { requestPaymentSession } from '../services/api/payments';
+import { countryCurrencyMap } from '../utils/countryCurrencyMap';
 
 interface CheckoutButtonProps {
     basket: IBasket;

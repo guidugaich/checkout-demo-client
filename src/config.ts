@@ -1,9 +1,6 @@
 const config = {
   checkoutPublicKey: import.meta.env.VITE_CHECKOUT_PUBLIC_KEY,
-  serverSideBaseUrl: {
-    local: 'http://localhost:3000',
-    live: 'https://checkout-demo-server.onrender.com'
-  }
+  serverSideBaseUrl: import.meta.env.VITE_SERVER_SIDE_HOST
 }
 
 export default config;

@@ -1,4 +1,3 @@
-/* global CheckoutWebComponents */
 import React, { useState } from 'react'
 import Basket, { IBasket } from '../components/Basket'
 // import Frame from './components/Frame'
@@ -46,6 +45,7 @@ const Home: React.FC = () => {
   };
   
   const removeProductFromBasketCompletely = (productId: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { [productId]: _, ...rest } = basket;
     setBasket(rest)
   };

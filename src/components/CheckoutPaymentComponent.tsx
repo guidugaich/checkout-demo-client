@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* global CheckoutWebComponents */
 import React from 'react';
 import config from '../config';
@@ -7,7 +8,7 @@ interface CheckoutPaymentComponentProps {
 }
 
 const getCheckoutWebComponent = async (paymentSession: any) => {
-  let CheckoutWebComponents = (window as any).CheckoutWebComponents
+  const CheckoutWebComponents = (window as any).CheckoutWebComponents
   
   const cko = await CheckoutWebComponents({
     paymentSession: paymentSession.data,

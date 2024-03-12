@@ -16,7 +16,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, addProductToBasket 
   return (
     <div className="productList">
         {products.map(product => (
-            <div className="productItem">
+            <div className="productItem" key={product.id}>
               <p className='productName'>{product.name} - ${product.price}</p>
               <img src={product.imgSrc}/>
               <button onClick={() => addProductToBasket(product.id)}>Add to Cart</button>
