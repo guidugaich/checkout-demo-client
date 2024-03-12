@@ -1,4 +1,6 @@
 import React from 'react';
+import gbFlagIcon from '../assets/gb.png'
+import deFlagIcon from '../assets/de.png'
 
 export type Country = 'GB' | 'DE';
 
@@ -22,13 +24,13 @@ const CountrySelection: React.FC<CountrySelectionProps> = ({ updateCountry, coun
         className={country === 'GB' ? 'selectedCountry' : ''}
         onClick={() => updateCountry('GB')}
       >
-        <img src="src/assets/gb.png"/>
+        <img src={gbFlagIcon} />
       </button>
       <button
         className={country === 'DE' ? 'selectedCountry' : ''}
         onClick={() => updateCountry('DE')}
       >
-        <img src="src/assets/de.png"/>
+        <img src={deFlagIcon} />
       </button>
     </div>
   );
