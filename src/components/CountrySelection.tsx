@@ -11,7 +11,7 @@ export const countryCurrencyMap = {
   'DE': 'EUR'
 };
 
-const CountySelection: React.FC<CountrySelectionProps> = ({ updateCountry }) => {
+const CountrySelection: React.FC<CountrySelectionProps> = ({ updateCountry }) => {
   return (
     <>
       <button onClick={() => updateCountry('GB')}>
@@ -24,4 +24,4 @@ const CountySelection: React.FC<CountrySelectionProps> = ({ updateCountry }) => 
   );
 }
 
-export default CountySelection;
+export default CountrySelection;

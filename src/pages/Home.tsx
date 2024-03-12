@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import ProductList from '../components/ProductList'
 import products from '../services/data/products'
 import CheckoutButton from '../components/CheckoutButton'
-import CountySelection, { Country } from '../components/CountySelection'
+import CountrySelection, { Country } from '../components/CountrySelection'
 import CheckoutPaymentComponent from '../components/CheckoutPaymentComponent'
 import CheckoutHostedPageButton from '../components/CheckoutHostedPageButton'
 
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Header />
-      <CountySelection updateCountry={updateCountry} />
+      <CountrySelection updateCountry={updateCountry} />
       <ProductList
         products={products}
         addProductToBasket={addProductToBasket}

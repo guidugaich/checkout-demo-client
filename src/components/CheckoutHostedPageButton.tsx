@@ -1,6 +1,6 @@
 import React from 'react';
 import { IBasket } from './Basket';
-import { Country, countryCurrencyMap } from './CountySelection';
+import { Country, countryCurrencyMap } from './CountrySelection';
 import { getTotalBasketAmount } from '../utils/basketUtils';
 import { requestHostedPaymentPage } from '../services/api/payments';
 
