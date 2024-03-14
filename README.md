@@ -8,6 +8,8 @@ The project need a couple of env vars to run. Copy the `.env.exemple` file to cr
 
 ## Getting Started
 
+Make sure to use Node 20.11.1, you can run `nvm use` if you have nvm installed.
+
 Clone the repository and run `npm install`. Use a node version higher than 18 to avoid package incompatibility.
 
 `npm run dev` to run locally and serve to `http://localhost:5173/`.
